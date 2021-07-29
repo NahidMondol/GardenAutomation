@@ -8,15 +8,16 @@ class WaterPump:
 
     def __init__(self, pin):
         self.waterpump = pin
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.waterpump, GPIO.OUT)
+
 
     def cleanGPIO(self):
         GPIO.cleanup()
 
 
     def setGPIOPin(self):
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(self.waterpump, GPIO.OUT)
 
 
@@ -36,13 +37,12 @@ class WaterPump:
             print("Pump Deactivated")
 
 
-pump = WaterPump(7)
-
-for i in range(10):
-    pump.activatePump()
-    time.sleep(2)
-    pump.deactivatePump()
-    time.sleep(2)
-
-pump.cleanGPIO()
-
+#pump = WaterPump(4)
+#
+#for i in range(10):
+#    pump.activatePump()
+#    time.sleep(2)
+#    pump.deactivatePump()
+#    time.sleep(2)
+#
+#pump.cleanGPIO()
