@@ -1,6 +1,7 @@
 import time
 import board
 import adafruit_sht4x
+from conversions import Conversions
 
 
 class TemperatureAndHumidity:
@@ -15,17 +16,16 @@ class TemperatureAndHumidity:
 
     def getTemperature(self):
         """Return the current temperature obtained from the SHT40"""
-        return self.sht.temperature
+        return Conversions.convertCelsiusToFahrenheit(self.sht.temperature)
 
 
     def getHumidity(self):
         """Return the current relative humidity obtained from the SHT40"""
         return self.sht.relative_humidity
 
-#
+
 #stats = TemperatureAndHumidity()
 #
 #while True:
-#    print(stats.getTemperature())
-#    print(stats.getHumidity())
+#    print("Temperature: {}, Humidity {}".format(stats.getTemperature(), stats.getHumidity()))
 #    time.sleep(1)

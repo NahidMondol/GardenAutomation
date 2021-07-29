@@ -61,8 +61,8 @@ class GardenDatabase:
                 conn.close()
 
 
-db = GardenDatabase()
-db.getTimeTempAndHumidity()
+#db = GardenDatabase()
+#db.getTimeTempAndHumidity()
 #cur = conn.cursor()
 #
 #cur.execute("SELECT * FROM general;")
