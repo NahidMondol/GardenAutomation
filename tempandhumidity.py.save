@@ -1,0 +1,22 @@
+import time
+import board
+import adafruit_sht4x
+
+class TemperatureAndHumidity:
+    sht = None
+
+    def __init__(self):
+        self.sht = adafruit_sht4x.SHTx(board.I2C())
+
+    def getTemperature(self):
+        return sht.temperature
+
+    def getHumidity(self):
+	return sht.relative_humidity
+
+
+
+while True:
+    print(sht.temperature)
+    print(sht.relative_humidity)
+    time.sleep(1)
