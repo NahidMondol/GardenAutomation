@@ -25,8 +25,8 @@ class SoilSensor:
         return Conversions.convertCelsiusToFahrenheit(self.ss.get_temp())
 
 
-#soilSensor = SoilSensor()
-#
+soilSensor = SoilSensor()
+
 #while True:
 #    print("Moisture: {}, Temperature: {}".format(str(soilSensor.getMoistureLevel()), str(soilSensor.getTemperature())))
 #    time.sleep(1)
