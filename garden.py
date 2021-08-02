@@ -1,4 +1,5 @@
 import time
+from tempandhumiditythread import TemperatureAndHumidityThread
 from tempandhumidity import TemperatureAndHumidity
 from soilsensor import SoilSensor
 from database import GardenDatabase
