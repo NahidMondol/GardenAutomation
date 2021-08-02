@@ -2,6 +2,7 @@ import time
 from tempandhumiditythread import TemperatureAndHumidityThread
 from tempandhumidity import TemperatureAndHumidity
 from soilsensor import SoilSensor
+from soilsensorthread import SoilSensorThread
 from database import GardenDatabase
 from waterpump import WaterPump
 
@@ -15,10 +16,15 @@ def runProgram(status, soilSensor):
         #db.getTimeTempAndHumidity()
 
 
-status = TemperatureAndHumidity()
-soilSensor = SoilSensor()
-pump = WaterPump(4)
+def runProgram(StatusThread, SoilSensorThread, WaterPump):
+    StatusThread.start()
+    time.sleep(0.1)
+    SoilSensorThread.start()
+
+
+StatusThread = TemperatureAndHumidityThread(1)
+SoilSensorThread = SoilSensorThread(2)
+Pump = WaterPump()
 #db = GardenDatabase()
 
-#print(db.getAll())
-runProgram(status, soilSensor)
+runProgram(StatusThread, SoilSensorThread, Pump)

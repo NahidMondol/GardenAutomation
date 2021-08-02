@@ -3,13 +3,10 @@ import RPi.GPIO as GPIO
 
 class WaterPump:
 
-    warningMessage = "The GPIO pin has not been specified for this pump"
-    waterpump = None
+    waterPumpPin = 4
 
-    def __init__(self, pin):
-        self.waterpump = pin
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.waterpump, GPIO.OUT)
+    def __init__(self):
+        self.setGPIOPin()
 
 
     def cleanGPIO(self):
@@ -17,29 +14,24 @@ class WaterPump:
 
 
     def setGPIOPin(self):
+        GPIO.setwarnings(False)
         GPIO.setmode(GPIO.BCM)
-        GPIO.setup(self.waterpump, GPIO.OUT)
+        GPIO.setup(self.waterPumpPin, GPIO.OUT)
 
 
     def activatePump(self):
-        if self.waterpump is None:
-            print(self.warningMessage)
-        else:
-            GPIO.output(self.waterpump, GPIO.HIGH)
-            print("Pump Activated")
+        GPIO.output(self.waterPumpPin, GPIO.HIGH)
+        print("Pump Activated")
 
 
     def deactivatePump(self):
-        if self.waterpump is None:
-            print(self.warningMessage)
-        else:
-            GPIO.output(self.waterpump, GPIO.LOW)
-            print("Pump Deactivated")
+        GPIO.output(self.waterPumpPin, GPIO.LOW)
+        print("Pump Deactivated")
 
 
-#pump = WaterPump(4)
+#pump = WaterPump()
 #
-#for i in range(10):
+#for i in range(3):
 #    pump.activatePump()
 #    time.sleep(2)
 #    pump.deactivatePump()

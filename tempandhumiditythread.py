@@ -20,17 +20,13 @@ class TemperatureAndHumidityThread(threading.Thread):
         """Obtain the temperature and humidity from the sht40
            until the thread is stopped
         """
-        counter = 0
         print("Starting TempAndHumidity Thread")
         while not self.stop:
             self.currentTemp = self.sensor.getTemperature()
             self.currentHumidity = self.sensor.getHumidity()
             print(self.currentTemp)
             print(self.currentHumidity)
-            counter += 1
             time.sleep(1)
-            if counter >= 10:
-                self.closeThread()
 
 
     def closeThread(self):
