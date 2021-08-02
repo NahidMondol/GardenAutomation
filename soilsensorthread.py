@@ -21,7 +21,7 @@ class SoilSensorThread(threading.Thread):
        while not self.stopped:
           self.moistureLevel = self.sensor.getMoistureLevel()
           print(self.moistureLevel)
-          time.sleep(1)
+          time.sleep(.25)
 
 
     def stopThread(self):

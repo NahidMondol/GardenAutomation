@@ -26,7 +26,7 @@ class TemperatureAndHumidityThread(threading.Thread):
             self.currentHumidity = self.sensor.getHumidity()
             print(self.currentTemp)
             print(self.currentHumidity)
-            time.sleep(.25)
+            time.sleep(1)
 
 
     def closeThread(self):
